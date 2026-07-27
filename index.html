@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frutex Flavor Lab</title>
+<link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+<div id="game-root">
+  <!-- HUD -->
+  <div id="game-hud">
+    <span class="hud-brand">Frutex Flavor Lab</span>
+    <div class="hud-stat"><span class="hud-icon"><svg viewBox="0 0 16 16" width="14" height="14"><circle cx="8" cy="8" r="7" fill="none" stroke="#d4b06a" stroke-width="1.5"/><circle cx="8" cy="8" r="4" fill="rgba(212,176,106,0.2)" stroke="#c8a45c" stroke-width="0.8"/><text x="8" y="12" text-anchor="middle" fill="#d4b06a" font-size="8" font-weight="bold">$</text></svg></span><span class="hud-value" id="hud-coins">0</span><span class="hud-label">coins</span></div>
+    <div class="hud-stat"><span class="hud-icon"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M6 2 L6 8 Q4 10 4 12 L12 12 Q12 10 10 8 L10 2" fill="none" stroke="#d4b06a" stroke-width="1.5"/></svg></span><span class="hud-value" id="hud-drinks">0</span><span class="hud-label">created</span></div>
+    <div class="hud-stat"><span class="hud-icon"><svg viewBox="0 0 16 16" width="14" height="14"><rect x="3" y="2" rx="1" width="10" height="12" fill="none" stroke="#d4b06a" stroke-width="1.2"/><line x1="8" y1="2" x2="8" y2="14" stroke="#d4b06a" stroke-width="0.8"/><line x1="5" y1="5" x2="7" y2="5" stroke="#c8a45c" stroke-width="0.5"/><line x1="5" y1="8" x2="7" y2="8" stroke="#c8a45c" stroke-width="0.5"/></svg></span><span class="hud-value" id="hud-discovered">0</span><span class="hud-label">found</span></div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="game-nav">
+    <button class="nav-tab active" data-goto="menu">Menu</button>
+    <button class="nav-tab" data-goto="lab">Laboratory</button>
+    <button class="nav-tab eagle-tab" data-goto="eagle">Golden Eagle</button>
+    <button class="nav-tab" data-goto="daily">Daily</button>
+    <button class="nav-tab" data-goto="collection">Collection</button>
+    <button class="nav-tab" data-goto="achievements">Achievements</button>
+    <button class="nav-tab" data-goto="minigames">Mini Games</button>
+    <button class="nav-tab" data-goto="leaderboard">Scores</button>
+    <button class="nav-tab" data-goto="settings">Settings</button>
+    <button class="nav-tab" data-goto="credits">Credits</button>
+  </nav>
+
+  <!-- MENU -->
+  <section class="screen active" data-screen="menu" id="menu-screen">
+    <div class="menu-title-area">
+      <div class="menu-logo"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M6 2 L6 8 Q4 10 4 12 L12 12 Q12 10 10 8 L10 2" fill="none" stroke="#d4b06a" stroke-width="1.5"/></svg></div>
+      <h1 class="menu-title">Frutex Flavor Lab</h1>
+      <p class="menu-subtitle">Beverage Innovation Laboratory</p>
+    </div>
+    <div class="menu-buttons">
+      <button class="menu-btn primary" data-goto="lab"><span class="btn-icon"><svg viewBox="0 0 20 20" width="18" height="18"><path d="M5 3 L5 12 Q3 14 3 16 L17 16 Q17 14 15 12 L15 3" fill="none" stroke="#d4b06a" stroke-width="1.8"/><ellipse cx="10" cy="14" rx="3" ry="2" fill="rgba(200,164,92,0.2)"/></svg></span>Enter Laboratory<span class="btn-arrow">→</span></button>
+      <button class="menu-btn" data-goto="collection"><span class="btn-icon"><svg viewBox="0 0 20 20" width="18" height="18"><rect x="4" y="3" rx="1.5" width="12" height="14" fill="none" stroke="#c8a45c" stroke-width="1.5"/><line x1="10" y1="3" x2="10" y2="17" stroke="#c8a45c" stroke-width="0.8"/></svg></span>Recipe Collection<span class="btn-arrow">→</span></button>
+      <button class="menu-btn eagle" data-goto="eagle"><span class="btn-icon"><svg viewBox="0 0 20 20" width="18" height="18"><polygon points="10,2 14,8 18,8 15,12 16,18 10,15 4,18 5,12 2,8 6,8" fill="none" stroke="#d4a840" stroke-width="1.5"/></svg></span>Golden Eagle Division<span class="btn-arrow">→</span></button>
+      <button class="menu-btn" data-goto="achievements"><span class="btn-icon"><svg viewBox="0 0 20 20" width="18" height="18"><circle cx="10" cy="7" r="4" fill="none" stroke="#d4b06a" stroke-width="1.5"/><path d="M6 13 Q8 11 10 13 Q12 15 14 13" fill="none" stroke="#d4b06a" stroke-width="1.2"/><rect x="7" y="14" rx="1" width="6" height="3" fill="none" stroke="#d4b06a" stroke-width="1"/></svg></span>Achievements<span class="btn-arrow">→</span></button>
+      <button class="menu-btn" data-goto="settings"><span class="btn-icon"><svg viewBox="0 0 20 20" width="18" height="18"><circle cx="10" cy="10" r="3" fill="none" stroke="#c8a45c" stroke-width="1.5"/><circle cx="10" cy="10" r="7" fill="none" stroke="#8a7d6b" stroke-width="1"/><line x1="10" y1="2" x2="10" y2="3" stroke="#8a7d6b" stroke-width="1.5"/><line x1="18" y1="10" x2="17" y2="10" stroke="#8a7d6b" stroke-width="1.5"/></svg></span>Settings<span class="btn-arrow">→</span></button>
+    </div>
+  </section>
+
+  <!-- LABORATORY -->
+  <section class="screen" data-screen="lab" id="lab-screen">
+    <div class="lab-layout" id="lab-layout">
+      <!-- LEFT: Ingredients -->
+      <div class="lab-left">
+        <div class="game-panel" style="flex:1">
+          <div class="panel-header">Ingredient Storage</div>
+          <div class="panel-body ingredient-shelf" id="ingredient-shelf"></div>
+        </div>
+      </div>
+      <!-- CENTER: Mixing Station -->
+      <div class="lab-center">
+        <div class="game-panel">
+          <div class="panel-header">Mixing Station</div>
+          <div class="mixing-station" id="mixing-station">
+            <div class="mixing-machine" id="mixing-machine">
+              <div class="machine-glass"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M6 2 L6 8 Q4 10 4 12 L12 12 Q12 10 10 8 L10 2" fill="none" stroke="#d4b06a" stroke-width="1.5"/></svg></div>
+              <div class="machine-label">FruteX 3000</div>
+            </div>
+            <div class="ingredient-slots" id="ingredient-slots">
+              <div class="ingredient-slot empty"><span class="slot-placeholder">+</span></div>
+              <div class="ingredient-slot empty"><span class="slot-placeholder">+</span></div>
+              <div class="ingredient-slot empty"><span class="slot-placeholder">+</span></div>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="game-btn primary" id="btn-mix" disabled>Mix Drink</button>
+              <button class="game-btn" id="btn-clear">Clear</button>
+            </div>
+          </div>
+        </div>
+        <div class="result-panel" id="result-panel"></div>
+      </div>
+      <!-- RIGHT: Orders -->
+      <div class="lab-right">
+        <div class="game-panel">
+          <div class="panel-header">Customer Orders</div>
+          <div class="panel-body order-panel" id="customer-panel"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOLDEN EAGLE -->
+  <section class="screen" data-screen="eagle" id="eagle-screen">
+    <div class="eagle-layout" id="eagle-layout"></div>
+  </section>
+
+  <!-- DAILY -->
+  <section class="screen" data-screen="daily" id="daily-screen"></section>
+
+  <!-- COLLECTION -->
+  <section class="screen" data-screen="collection" id="collection-screen"></section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="screen" data-screen="achievements" id="achievements-screen"></section>
+
+  <!-- MINI GAMES -->
+  <section class="screen" data-screen="minigames" id="minigames-screen"></section>
+
+  <!-- LEADERBOARD -->
+  <section class="screen" data-screen="leaderboard" id="leaderboard-screen"></section>
+
+  <!-- SETTINGS -->
+  <section class="screen" data-screen="settings" id="settings-screen"></section>
+
+  <!-- CREDITS -->
+  <section class="screen" data-screen="credits" id="credits-screen"></section>
+</div>
+
+<canvas id="particles-canvas"></canvas>
+<div id="overlay-bg"></div>
+<div class="game-modal" id="generic-modal"><h2 class="modal-title"></h2><div class="modal-body"></div><div class="modal-buttons"></div></div>
+<div id="toast-container"></div>
+
+<script src="js/game.js"></script>
+</body>
+</html>
