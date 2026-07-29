@@ -52,86 +52,95 @@
     <div class="lab-layout" id="lab-layout">
       <!-- LEFT: Ingredients -->
       <div class="lab-left">
-        <div class="game-panel" style="flex:1">
-          <div class="panel-header">Ingredient Shelf</div>
-          <div class="panel-body ingredient-shelf" id="ingredient-shelf"></div>
+        <div class="panel-wood">
+          <div class="panel-wood-header">Ingredients</div>
+          <div class="panel-wood-body ingredient-shelf" id="ingredient-shelf"></div>
         </div>
       </div>
-      <!-- CENTER: Mixing Station + Buttons -->
+      <!-- CENTER: Bar Scene -->
       <div class="lab-center">
-        <div class="game-panel">
-          <div class="panel-header">Mixing Station</div>
-          <div class="mixing-station" id="mixing-station">
-            <div class="mixing-machine" id="mixing-machine">
-              <div class="machine-glass" id="machine-glass">
-                <div class="glass-liquid" id="glass-liquid"></div>
-                <svg viewBox="0 0 48 48" width="36" height="36"><defs><linearGradient id="machG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0d878"/><stop offset="50%" stop-color="#d4a840"/><stop offset="100%" stop-color="#8a6d20"/></linearGradient><linearGradient id="machLiq" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#c0392b"/></linearGradient></defs><path d="M14 8 L14 26 Q10 30 10 36 Q10 40 12 42 L36 42 Q38 40 38 36 Q38 30 34 26 L34 8" fill="url(#machG)" stroke="#5a4020" stroke-width="1.2" stroke-linejoin="round"/><ellipse cx="24" cy="32" rx="8" ry="5" fill="url(#machLiq)" opacity="0.5"/><ellipse cx="22" cy="26" rx="6" ry="3" fill="rgba(255,255,255,0.12)"/><circle cx="29" cy="16" r="3" fill="rgba(255,255,255,0.06)"/><circle cx="27" cy="21" r="1.5" fill="rgba(255,255,255,0.05)"/><rect x="22" y="3" width="4" height="6" rx="1" fill="#b8943e"/></svg>
+        <div class="bar-scene" id="bartender-stage">
+          <!-- Velvet curtains -->
+          <div class="curtain curtain-left"></div>
+          <div class="curtain curtain-right"></div>
+          <div class="curtain-tie curtain-tie-left"></div>
+          <div class="curtain-tie curtain-tie-right"></div>
+          <!-- Cabinet backdrop -->
+          <div class="cabinet">
+            <div class="cabinet-shelf"><div class="cabinet-bottle" style="background:linear-gradient(180deg,#ff5252,#b71c1c)"></div><div class="cabinet-bottle" style="background:linear-gradient(180deg,#ffb74d,#e65100)"></div><div class="cabinet-bottle tall" style="background:linear-gradient(180deg,#4fc3f7,#0277bd)"></div><div class="cabinet-bottle square" style="background:linear-gradient(180deg,#ce93d8,#7b1fa2)"></div><div class="cabinet-glass"></div></div>
+            <div class="cabinet-shelf"><div class="cabinet-bottle tall" style="background:linear-gradient(180deg,#81c784,#2e7d32)"></div><div class="cabinet-bottle" style="background:linear-gradient(180deg,#fff176,#f9a825)"></div><div class="cabinet-jar" style="background:linear-gradient(180deg,rgba(255,183,77,0.7),#ff8f00)"></div><div class="cabinet-bottle square" style="background:linear-gradient(180deg,#ff8a65,#bf360c)"></div><div class="cabinet-bottle tall" style="background:linear-gradient(180deg,#a5d6a7,#2e7d32)"></div></div>
+            <div class="cabinet-shelf"><div class="cabinet-bottle square" style="background:linear-gradient(180deg,#ef5350,#b71c1c)"></div><div class="cabinet-bottle tall" style="background:linear-gradient(180deg,#42a5f5,#1565c0)"></div><div class="cabinet-bottle" style="background:linear-gradient(180deg,#ffca28,#ff8f00)"></div><div class="cabinet-jar" style="background:linear-gradient(180deg,rgba(129,199,132,0.7),#388e3c)"></div><div class="cabinet-glass wine"></div></div>
+          </div>
+          <!-- Bartender -->
+          <div class="bartender" id="bartender">
+            <div class="bartender-hair"></div>
+            <div class="bartender-head" id="b-head">
+              <div class="bartender-eyebrow left"></div>
+              <div class="bartender-eyebrow right"></div>
+              <div class="bartender-eyes">
+                <div class="bartender-eye"><div class="bartender-pupil"></div></div>
+                <div class="bartender-eye"><div class="bartender-pupil"></div></div>
               </div>
-              <div class="machine-label">FruteX 3000</div>
+              <div class="bartender-nose"></div>
+              <div class="bartender-mouth"></div>
+              <div class="bartender-wrinkle left"></div>
+              <div class="bartender-wrinkle right"></div>
             </div>
-            <div class="ingredient-slots" id="ingredient-slots">
-              <div class="ingredient-slot empty"><span class="slot-placeholder">+</span></div>
-              <div class="ingredient-slot empty"><span class="slot-placeholder">+</span></div>
-              <div class="ingredient-slot empty"><span class="slot-placeholder">+</span></div>
+            <div class="bartender-body">
+              <div class="bartender-tie"></div>
+              <div class="bartender-collar left"></div>
+              <div class="bartender-collar right"></div>
             </div>
-            <!-- Wooden Bar Buttons -->
-            <div class="button-bar">
-              <button class="bar-btn pour-btn" id="btn-clear" title="Clear ingredients">
-                <span class="bar-btn-icon">🍾</span>POUR
-              </button>
-              <button class="bar-btn shake-btn" id="btn-mix" disabled title="Mix your drink">
-                <span class="bar-btn-icon">🥤</span>SHAKE
-              </button>
-              <button class="bar-btn serve-btn" id="btn-serve" title="Serve to customer">
-                <span class="bar-btn-icon">🍸</span>SERVE
-              </button>
+            <div class="bartender-arm left" id="b-arm-l">
+              <div class="bartender-sleeve left"></div>
+              <div class="bartender-hand" id="b-hand-l"></div>
             </div>
+            <div class="bartender-arm right" id="b-arm-r">
+              <div class="bartender-sleeve right"></div>
+              <div class="bartender-hand shaker-hold" id="b-hand-r"></div>
+            </div>
+          </div>
+          <!-- Counter -->
+          <div class="bar-counter">
+            <div class="counter-top"></div>
+            <div class="counter-front"></div>
+          </div>
+        </div>
+        <!-- Mixing Station on counter -->
+        <div class="mixing-station" id="mixing-station">
+          <div class="mixing-machine" id="mixing-machine">
+            <div class="machine-glass" id="machine-glass">
+              <div class="glass-liquid" id="glass-liquid"></div>
+            </div>
+            <div class="machine-label">SHAKER</div>
+          </div>
+          <div class="ingredient-slots" id="ingredient-slots">
+            <div class="ingredient-slot empty"><span class="slot-placeholder">+</span></div>
+            <div class="ingredient-slot empty"><span class="slot-placeholder">+</span></div>
+            <div class="ingredient-slot empty"><span class="slot-placeholder">+</span></div>
+          </div>
+          <div class="button-bar">
+            <button class="wood-btn pour-btn" id="btn-clear">
+              <span class="wood-btn-medal"><span class="medal-icon">🗑️</span></span>
+              <span class="wood-btn-label">CLEAR</span>
+            </button>
+            <button class="wood-btn shake-btn" id="btn-mix" disabled>
+              <span class="wood-btn-medal"><span class="medal-icon">🥤</span></span>
+              <span class="wood-btn-label">SHAKE</span>
+            </button>
+            <button class="wood-btn serve-btn" id="btn-serve">
+              <span class="wood-btn-medal"><span class="medal-icon">🍸</span></span>
+              <span class="wood-btn-label">SERVE</span>
+            </button>
           </div>
         </div>
         <div class="result-panel" id="result-panel"></div>
       </div>
-      <!-- RIGHT: Bartender + Orders -->
+      <!-- RIGHT: Orders -->
       <div class="lab-right">
-        <!-- Customer Orders (parchment) -->
-        <div class="game-panel" style="flex:1">
-          <div class="panel-header">Customer Orders</div>
-          <div class="panel-body order-panel" id="customer-panel"></div>
-        </div>
-        <!-- Bartender Character -->
-        <div class="game-panel">
-          <div class="panel-header">Your Bartender</div>
-          <div class="panel-body" style="text-align:center;padding:12px 12px 0">
-            <div class="bartender" id="bartender">
-              <div class="bartender-head" id="b-head">
-                <div class="bartender-eyes">
-                  <div class="bartender-eye"></div>
-                  <div class="bartender-eye"></div>
-                </div>
-                <div class="bartender-mouth"></div>
-              </div>
-              <div class="bartender-body">
-                <div class="bartender-bowtie"></div>
-              </div>
-              <div class="bartender-arm left" id="b-arm-l">
-                <div class="bartender-hand" id="b-hand-l"></div>
-              </div>
-              <div class="bartender-arm right" id="b-arm-r">
-                <div class="bartender-hand shaker-hold" id="b-hand-r"></div>
-              </div>
-            </div>
-            <!-- Wooden shelf behind bartender -->
-            <div class="wooden-shelf" style="margin-top:8px;border-radius:0 0 var(--radius-lg) var(--radius-lg)">
-              <div class="shelf-bottle" style="background:linear-gradient(180deg,#ff5252,#b71c1c)"></div>
-              <div class="shelf-bottle" style="background:linear-gradient(180deg,#ffb74d,#e65100)"></div>
-              <div class="shelf-bottle" style="background:linear-gradient(180deg,#fff176,#f9a825)"></div>
-              <div class="shelf-jar" style="background:linear-gradient(180deg,rgba(129,199,132,0.7),#388e3c)"></div>
-              <div class="shelf-bottle" style="background:linear-gradient(180deg,#ce93d8,#7b1fa2)"></div>
-              <div class="shelf-bottle" style="background:linear-gradient(180deg,#4fc3f7,#0277bd)"></div>
-              <div class="shelf-bottle" style="background:linear-gradient(180deg,#ff8a65,#bf360c)"></div>
-              <div class="shelf-jar" style="background:linear-gradient(180deg,rgba(255,183,77,0.7),#ff8f00)"></div>
-              <div class="shelf-bottle" style="background:linear-gradient(180deg,#a5d6a7,#2e7d32)"></div>
-            </div>
-          </div>
+        <div class="panel-wood">
+          <div class="panel-wood-header">Orders</div>
+          <div class="panel-wood-body order-panel" id="customer-panel"></div>
         </div>
       </div>
     </div>

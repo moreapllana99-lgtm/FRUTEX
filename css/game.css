@@ -458,68 +458,7 @@ body::before {
   box-shadow: 0 0 12px rgba(212,168,64,0.2);
 }
 
-/* === MIXING STATION === */
-.mixing-station {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  padding: 24px;
-  text-align: center;
-}
-.mixing-machine {
-  width: 180px;
-  height: 200px;
-  background: linear-gradient(180deg, var(--wood-dark), #2a1205);
-  border: 3px solid var(--wood-border);
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: 
-    0 8px 24px rgba(0,0,0,0.5), 
-    inset 0 2px 4px rgba(255,255,255,0.02),
-    inset 0 -3px 0 rgba(0,0,0,0.3);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-.mixing-machine .machine-glass {
-  width: 110px;
-  height: 90px;
-  background: rgba(212,168,64,0.06);
-  border: 2px solid var(--wood-light);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mixing-machine .machine-label {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--gold-dim);
-  margin-top: 6px;
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-}
-.mixing-machine:hover {
-  border-color: var(--gold-dim);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5), 0 0 24px rgba(212,168,64,0.1);
-}
-.mixing-machine.mixing {
-  animation: machineShake 0.4s ease-in-out 2;
-}
-@keyframes machineShake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px) rotate(-1.5deg); }
-  75% { transform: translateX(5px) rotate(1.5deg); }
-}
-.mixing-machine.shake {
-  animation: machineShake 0.3s ease-in-out;
-}
-
+/* === INGREDIENT SLOTS === */
 .ingredient-slots {
   display: flex;
   gap: 10px;
@@ -777,171 +716,298 @@ body::before {
   border-radius: 3px;
 }
 
-/* ===== BARTENDER CHARACTER (CSS art) ===== */
+/* ===== BARTENDER CHARACTER (CSS art - professional) ===== */
 .bartender {
   position: relative;
-  width: 100px;
-  height: 160px;
+  width: 160px;
+  height: 280px;
   margin: 0 auto;
 }
+/* Hair */
+.bartender-hair {
+  position: absolute;
+  top: -4px; left: 50%;
+  transform: translateX(-50%);
+  width: 64px; height: 28px;
+  background: #888;
+  border-radius: 50% 50% 30% 30%;
+  z-index: 3;
+  box-shadow: 0 2px 0 #777;
+}
+/* Head */
 .bartender-head {
-  width: 50px;
-  height: 50px;
-  background: #f5cba7;
-  border: 3px solid var(--wood-border);
+  width: 62px; height: 58px;
+  background: #e8c9a0;
+  border: 3px solid #5a3a20;
   border-radius: 50%;
   position: absolute;
-  top: 0;
-  left: 50%;
+  top: 12px; left: 50%;
   transform: translateX(-50%);
+  z-index: 2;
 }
-.bartender-head::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: 4px;
-  border: 2.5px solid var(--wood-border);
-  border-bottom: none;
-  border-radius: 30px 30px 0 0;
-  background: #2c1810;
-  z-index: -1;
+/* Eyebrows */
+.bartender-eyebrow {
+  position: absolute; top: 14px;
+  width: 16px; height: 5px;
+  background: #777;
+  border-radius: 3px;
 }
+.bartender-eyebrow.left { left: 10px; }
+.bartender-eyebrow.right { right: 10px; }
+/* Eyes */
 .bartender-eyes {
-  position: absolute;
-  top: 16px;
-  left: 50%;
+  position: absolute; top: 20px; left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
+  display: flex; gap: 12px;
 }
 .bartender-eye {
-  width: 6px;
-  height: 6px;
-  background: var(--wood-border);
-  border-radius: 50%;
-}
-.bartender-mouth {
-  width: 12px;
-  height: 4px;
-  background: var(--wood-border);
-  border-radius: 0 0 6px 6px;
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.bartender-body {
-  width: 70px;
-  height: 80px;
+  width: 9px; height: 7px;
   background: #fff;
-  border: 3px solid var(--wood-border);
-  border-radius: 12px 12px 8px 8px;
-  position: absolute;
-  top: 42px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: inset 0 4px 0 rgba(0,0,0,0.1);
+  border: 2px solid #3a2010;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
 }
-.bartender-bowtie {
-  width: 20px;
-  height: 12px;
-  background: var(--red);
-  border: 2px solid var(--red-dark);
-  border-radius: 3px;
+.bartender-pupil {
+  width: 4px; height: 4px;
+  background: #1a0a00;
+  border-radius: 50%;
   position: absolute;
-  top: 16px;
-  left: 50%;
+  top: 1px; left: 50%;
   transform: translateX(-50%);
 }
+/* Nose */
+.bartender-nose {
+  position: absolute; top: 26px; left: 50%;
+  transform: translateX(-50%);
+  width: 10px; height: 12px;
+  background: #d4b58c;
+  border: 2px solid #5a3a20;
+  border-radius: 50% 50% 40% 40%;
+  border-top: none;
+}
+/* Mouth */
+.bartender-mouth {
+  width: 18px; height: 5px;
+  background: #8b5a4b;
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  bottom: 12px; left: 50%;
+  transform: translateX(-50%);
+}
+/* Wrinkles */
+.bartender-wrinkle {
+  position: absolute; bottom: 22px;
+  width: 8px; height: 1px;
+  background: rgba(90,50,30,0.25);
+}
+.bartender-wrinkle.left { left: 12px; }
+.bartender-wrinkle.right { right: 12px; }
+/* Body - suit */
+.bartender-body {
+  width: 90px; height: 110px;
+  background: linear-gradient(180deg, #222, #111);
+  border: 3px solid #1a1a1a;
+  border-radius: 14px 14px 6px 6px;
+  position: absolute;
+  top: 62px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+/* White shirt front */
+.bartender-body::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 30px; height: 70px;
+  background: linear-gradient(180deg, #fff, #eee);
+  border-left: 2px solid #ddd;
+  border-right: 2px solid #ddd;
+  border-radius: 0 0 4px 4px;
+}
+/* Tie */
+.bartender-tie {
+  position: absolute;
+  top: 12px; left: 50%;
+  transform: translateX(-50%);
+  width: 12px; height: 50px;
+  background: linear-gradient(180deg, #8b0000, #4a0000);
+  clip-path: polygon(50% 0%, 100% 25%, 80% 100%, 20% 100%, 0% 25%);
+  z-index: 3;
+}
+/* Collar */
+.bartender-collar {
+  position: absolute;
+  top: 7px; width: 16px; height: 12px;
+  background: #fff;
+  border: 2px solid #ccc;
+  clip-path: polygon(0 0, 100% 30%, 80% 100%, 0% 80%);
+  z-index: 2;
+}
+.bartender-collar.left { left: 23px; transform: scaleX(-1); }
+.bartender-collar.right { right: 23px; }
+/* Arms */
 .bartender-arm {
-  width: 20px;
-  height: 55px;
-  background: #f5cba7;
-  border: 2.5px solid var(--wood-border);
+  width: 22px; height: 65px;
+  background: #222;
+  border: 2.5px solid #1a1a1a;
   border-radius: 10px;
   position: absolute;
-  top: 50px;
+  top: 68px;
   transform-origin: top center;
   transition: transform 0.3s ease;
+  z-index: 0;
 }
-.bartender-arm.left {
-  left: -8px;
-  transform: rotate(15deg);
+.bartender-arm.left { left: 2px; transform: rotate(12deg); }
+.bartender-arm.right { right: 2px; transform: rotate(-12deg); }
+/* Suit sleeves */
+.bartender-sleeve {
+  position: absolute; top: 2px; left: 50%;
+  transform: translateX(-50%);
+  width: 20px; height: 20px;
+  background: #222;
+  border-radius: 4px 4px 0 0;
 }
-.bartender-arm.right {
-  right: -8px;
-  transform: rotate(-15deg);
-}
-
-/* Bartender Hands */
+/* Hands */
 .bartender-hand {
-  width: 16px;
-  height: 14px;
-  background: #f5cba7;
-  border: 2.5px solid var(--wood-border);
+  width: 18px; height: 16px;
+  background: #e8c9a0;
+  border: 2.5px solid #5a3a20;
   border-radius: 50% 50% 6px 6px;
   position: absolute;
-  bottom: -8px;
-  left: 50%;
+  bottom: -10px; left: 50%;
   transform: translateX(-50%);
   transition: all 0.3s ease;
 }
 .bartender-hand::after {
   content: '';
   position: absolute;
-  bottom: -3px;
-  left: 50%;
+  bottom: -3px; left: 50%;
   transform: translateX(-50%);
-  width: 6px;
-  height: 4px;
-  background: var(--wood-border);
+  width: 6px; height: 4px;
+  background: #5a3a20;
   border-radius: 0 0 3px 3px;
 }
 
-/* ===== BARTENDER ANIMATION STATES ===== */
-
-/* Idle breathing */
-.bartender.idle {
-  animation: bIdle 3s ease-in-out infinite;
+/* ===== BAR SCENE ===== */
+.bar-scene {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: linear-gradient(180deg, #3a1a08 0%, #2a1004 40%, #1a0800 100%);
+  border: var(--outline);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
 }
+/* Velvet curtains */
+.curtain {
+  position: absolute; top: 0;
+  width: 60px; height: 100%;
+  background: linear-gradient(180deg, #6b1515, #4a0a0a 40%, #3a0505 80%);
+  z-index: 10;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+}
+.curtain-left { left: 0; border-right: 3px solid #8b2020; }
+.curtain-right { right: 0; border-left: 3px solid #8b2020; }
+.curtain-tie {
+  position: absolute; top: 10px;
+  width: 14px; height: 90px;
+  background: linear-gradient(180deg, #c8a030, #8a6d15);
+  z-index: 11;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.curtain-tie-left { left: 48px; }
+.curtain-tie-right { right: 48px; }
+/* Cabinet behind bartender */
+.cabinet {
+  position: absolute; top: 0; left: 60px; right: 60px;
+  bottom: 0;
+  background: linear-gradient(180deg, #4a2510, #2a1205);
+  z-index: 0;
+  display: flex; flex-direction: column;
+  gap: 2px; padding: 8px 0;
+  border-bottom: 6px solid #1a0800;
+}
+.cabinet-shelf {
+  display: flex; justify-content: center;
+  align-items: flex-end; gap: 10px;
+  height: 33%;
+  padding: 4px 20px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2), transparent 20%, transparent 80%, rgba(0,0,0,0.3));
+}
+.cabinet-bottle {
+  width: 14px; height: 36px;
+  border-radius: 3px 3px 2px 2px;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.cabinet-bottle.tall { height: 52px; width: 12px; }
+.cabinet-bottle.square { width: 22px; height: 28px; border-radius: 3px; }
+.cabinet-jar {
+  width: 20px; height: 30px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.cabinet-glass {
+  width: 16px; height: 24px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 0 0 6px 6px;
+  border-top: 2px solid rgba(255,255,255,0.15);
+}
+.cabinet-glass::before {
+  content: ''; display: block;
+  width: 24px; height: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 2px;
+  margin: -10px 0 0 -5px;
+}
+.cabinet-glass.wine { height: 30px; width: 14px; border-radius: 50% 50% 4px 4px; }
+/* Counter */
+.bar-counter { position: absolute; bottom: 0; left: 0; right: 0; height: 70px; z-index: 5; }
+.counter-top {
+  height: 14px;
+  background: linear-gradient(180deg, #8b5e3c, #6b3e1a);
+  border-top: 3px solid #a07046;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.counter-front {
+  height: 56px;
+  background: linear-gradient(180deg, #5a3018, #3a1808);
+  border-bottom: 4px solid #1a0800;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.03);
+}
+
+/* ===== BARTENDER ANIMATION STATES ===== */
+/* Idle breathing */
+.bartender.idle { animation: bIdle 3s ease-in-out infinite; }
 @keyframes bIdle {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-3px); }
 }
-.bartender.idle .bartender-head {
-  animation: bHeadIdle 3s ease-in-out infinite;
-}
+.bartender.idle .bartender-head { animation: bHeadIdle 3s ease-in-out infinite; }
 @keyframes bHeadIdle {
   0%, 100% { transform: translateX(-50%) rotate(0deg); }
   50% { transform: translateX(-50%) rotate(1deg); }
 }
-
 /* Blinking */
-.bartender-eye {
-  animation: bBlink 4s ease-in-out infinite;
-}
+.bartender-eye { animation: bBlink 4s ease-in-out infinite; }
 @keyframes bBlink {
   0%, 45%, 55%, 100% { transform: scaleY(1); }
   50% { transform: scaleY(0.1); }
 }
-
-/* Pouring - right arm reaches forward */
-.bartender.pouring .bartender-arm.right {
-  transform: rotate(-60deg) translateY(-20px);
-}
-.bartender.pouring .bartender-arm.left {
-  transform: rotate(25deg);
-}
-.bartender.pouring #b-head {
-  transform: translateX(-50%) rotate(-5deg);
-}
-.bartender.pouring .bartender-hand {
-  transform: translateX(-50%) scale(1.2);
-}
-
-/* Shaking - both arms grab shaker, shake rapidly */
+/* Pouring */
+.bartender.pouring .bartender-arm.right { transform: rotate(-60deg) translateY(-20px); }
+.bartender.pouring .bartender-arm.left { transform: rotate(25deg); }
+.bartender.pouring #b-head { transform: translateX(-50%) rotate(-5deg); }
+.bartender.pouring .bartender-hand { transform: translateX(-50%) scale(1.2); }
+/* Shaking */
 .bartender.shaking .bartender-arm.right {
   transform: rotate(-45deg) translateY(-10px);
   animation: bShakeArm 0.15s ease-in-out infinite;
@@ -955,32 +1021,24 @@ body::before {
   25% { transform: rotate(-50deg) translateY(-12px) translateX(3px); }
   75% { transform: rotate(-40deg) translateY(-8px) translateX(-3px); }
 }
-.bartender.shaking #b-head {
-  animation: bShakeHead 0.15s ease-in-out infinite;
-}
+.bartender.shaking #b-head { animation: bShakeHead 0.15s ease-in-out infinite; }
 @keyframes bShakeHead {
   0%, 100% { transform: translateX(-50%) rotate(0); }
   50% { transform: translateX(-50%) rotate(3deg); }
 }
-.bartender.shaking .bartender-body {
-  animation: bShakeBody 0.15s ease-in-out infinite;
-}
+.bartender.shaking .bartender-body { animation: bShakeBody 0.15s ease-in-out infinite; }
 @keyframes bShakeBody {
   0%, 100% { transform: translateX(-50%) rotate(0); }
   50% { transform: translateX(-50%) rotate(-2deg); }
 }
-
 /* Shaker in hand during shake */
 .bartender-hand.shaker-hold::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 50%;
+  content: ''; position: absolute;
+  top: -30px; left: 50%;
   transform: translateX(-50%);
-  width: 22px;
-  height: 32px;
+  width: 22px; height: 32px;
   background: linear-gradient(180deg, #c0c0c0, #808080);
-  border: 2.5px solid var(--wood-border);
+  border: 2.5px solid #5a3a20;
   border-radius: 4px 4px 2px 2px;
   display: none;
 }
@@ -993,20 +1051,11 @@ body::before {
   25% { transform: translateX(-50%) rotate(-5deg); }
   75% { transform: translateX(-50%) rotate(5deg); }
 }
-
-/* Serving - right arm extends forward, slide motion */
-.bartender.serving .bartender-arm.right {
-  transform: rotate(-80deg) translateY(-30px) translateX(15px);
-}
-.bartender.serving .bartender-arm.left {
-  transform: rotate(10deg);
-}
-.bartender.serving #b-head {
-  transform: translateX(-50%) rotate(-8deg);
-}
-.bartender.serving .bartender-hand {
-  animation: bServeHand 0.5s ease-in-out;
-}
+/* Serving */
+.bartender.serving .bartender-arm.right { transform: rotate(-80deg) translateY(-30px) translateX(15px); }
+.bartender.serving .bartender-arm.left { transform: rotate(10deg); }
+.bartender.serving #b-head { transform: translateX(-50%) rotate(-8deg); }
+.bartender.serving .bartender-hand { animation: bServeHand 0.5s ease-in-out; }
 @keyframes bServeHand {
   0% { transform: translateX(-50%) scale(1); }
   30% { transform: translateX(-50%) translateY(-5px) scale(1.1); }
@@ -1015,22 +1064,13 @@ body::before {
 
 /* ===== GLASS LIQUID LEVEL ===== */
 .glass-liquid {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
+  position: absolute; bottom: 4px; left: 50%;
   transform: translateX(-50%);
-  width: 56px;
-  height: 0px;
-  max-height: 50px;
-  background: linear-gradient(180deg, 
-    rgba(255,107,53,0.7),
-    rgba(230,80,40,0.6),
-    rgba(180,40,20,0.5)
-  );
+  width: 56px; height: 0px; max-height: 48px;
+  background: linear-gradient(180deg, rgba(255,107,53,0.7), rgba(230,80,40,0.6), rgba(180,40,20,0.5));
   border-radius: 0 0 8px 8px;
   transition: height 0.4s ease, background 0.3s ease;
-  z-index: 1;
-  pointer-events: none;
+  z-index: 1; pointer-events: none;
 }
 .glass-liquid.level-1 { height: 12px; background: linear-gradient(180deg, rgba(255,140,100,0.6), rgba(200,70,40,0.5)); }
 .glass-liquid.level-2 { height: 26px; background: linear-gradient(180deg, rgba(255,120,80,0.65), rgba(210,60,30,0.55)); }
@@ -1041,58 +1081,202 @@ body::before {
   60% { opacity: 0.9; transform: translateX(-50%) scaleY(1.1); }
   100% { opacity: 1; transform: translateX(-50%) scaleY(1); }
 }
-.glass-liquid.drained {
-  height: 0 !important;
-  transition: height 0.3s ease;
-}
+.glass-liquid.drained { height: 0 !important; transition: height 0.3s ease; }
 
-/* ===== MACHINE GLASS relative positioning ===== */
-.machine-glass {
-  position: relative;
-  overflow: hidden;
-}
-.machine-glass svg {
-  position: relative;
-  z-index: 2;
-}
+/* Machine glass */
+.machine-glass { position: relative; overflow: hidden; }
+.machine-glass svg { position: relative; z-index: 2; }
 
-/* ===== BARTENDER BODY idle breathing ===== */
-.bartender-body {
-  animation: bBodyBreathe 3s ease-in-out infinite;
-}
+/* Body breathing */
+.bartender-body { animation: bBodyBreathe 3s ease-in-out infinite; }
 @keyframes bBodyBreathe {
   0%, 100% { transform: translateX(-50%) scaleY(1); }
   50% { transform: translateX(-50%) scaleY(1.03); }
 }
 
+/* ===== REACTION STATES ===== */
+.bartender.success { animation: bSuccess 0.6s ease-out; }
+@keyframes bSuccess {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-15px); }
+  60% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+.bartender.success .bartender-mouth {
+  width: 20px; height: 8px;
+  border-radius: 0 0 12px 12px;
+  background: #8b5a4b;
+  transform: translateX(-50%) scaleY(-0.6);
+  bottom: 8px;
+  transition: all 0.2s ease;
+}
+.bartender.fail { animation: bFail 0.5s ease-in-out; }
+@keyframes bFail {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px) rotate(-3deg); }
+}
+.bartender.fail .bartender-mouth {
+  width: 10px; height: 3px;
+  border-radius: 10px 10px 0 0;
+  bottom: 12px; transition: all 0.2s ease;
+}
+.bartender.fail .bartender-head { transform: translateX(-50%) rotate(-3deg); }
+.bartender.celebrate { animation: bCelebrate 0.8s ease-out; }
+@keyframes bCelebrate {
+  0% { transform: translateY(0) scale(1); }
+  20% { transform: translateY(-20px) scale(1.1); }
+  40% { transform: translateY(-10px) scale(1.05); }
+  70% { transform: translateY(-18px) scale(1.08); }
+  100% { transform: translateY(0) scale(1); }
+}
+.bartender.celebrate .bartender-arm.right { transform: rotate(-130deg) translateY(-25px) !important; transition: transform 0.4s ease; }
+.bartender.celebrate .bartender-arm.left { transform: rotate(130deg) translateY(-25px) !important; transition: transform 0.4s ease; }
+
+/* ===== WOOD BUTTONS (gold medallion style) ===== */
+.wood-btn {
+  width: 100px; height: 100px;
+  background: linear-gradient(180deg, #6b3e1a, #3a1808);
+  border: 4px solid #2a1004;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+  padding: 10px 8px;
+  transition: all 0.1s ease;
+  box-shadow: 0 5px 0 #1a0800, 0 6px 16px rgba(0,0,0,0.5);
+  position: relative;
+}
+.wood-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 0 #1a0800, 0 9px 20px rgba(0,0,0,0.5);
+}
+.wood-btn:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #1a0800;
+}
+.wood-btn:disabled {
+  opacity: 0.3; cursor: not-allowed;
+  filter: grayscale(0.7);
+  transform: none;
+  box-shadow: 0 3px 0 #1a0800;
+}
+.wood-btn-medal {
+  width: 52px; height: 52px;
+  background: radial-gradient(circle at 40% 35%, #f0d878, #c8a030 50%, #8a6d15 100%);
+  border: 3px solid #6b4c10;
+  border-radius: 50%;
+  display: flex; align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 3px 6px rgba(0,0,0,0.4);
+}
+.medal-icon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+}
+.wood-btn-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem; font-weight: 900;
+  letter-spacing: 2px;
+  color: #d4c0a0;
+  text-transform: uppercase;
+}
+.wood-btn.pour-btn .wood-btn-medal { background: radial-gradient(circle at 40% 35%, #8ec8e8, #4a8ab0 50%, #2a5a7a 100%); border-color: #1a3a4a; }
+.wood-btn.shake-btn .wood-btn-medal { background: radial-gradient(circle at 40% 35%, #f0d878, #c8a030 50%, #8a6d15 100%); border-color: #6b4c10; }
+.wood-btn.serve-btn .wood-btn-medal { background: radial-gradient(circle at 40% 35%, #f08080, #c04040 50%, #7a2020 100%); border-color: #4a1010; }
+
 /* ===== BUTTON BAR ===== */
 .button-bar {
-  display: flex;
-  gap: 10px;
+  display: flex; gap: 16px;
   justify-content: center;
-  padding: 12px;
+  padding: 8px 0;
   flex-wrap: wrap;
 }
 
-/* === LAB LAYOUT (redesigned) === */
+/* === LAB LAYOUT === */
 .lab-layout {
   display: grid;
-  grid-template-columns: 220px 1fr 280px;
+  grid-template-columns: 220px 1fr 260px;
   gap: var(--gap);
-  flex: 1;
-  padding: var(--gap);
+  flex: 1; padding: var(--gap);
   min-height: 0;
 }
 .lab-left, .lab-right {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap);
-  overflow-y: auto;
+  display: flex; flex-direction: column;
+  overflow-y: auto; min-height: 0;
 }
 .lab-center {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap);
+  display: flex; flex-direction: column;
+  align-items: center; gap: var(--gap);
+  overflow-y: auto; min-height: 0;
+}
+/* Wood panels for sidebars */
+.panel-wood {
+  background: linear-gradient(180deg, #5a3018, #3a1808);
+  border: var(--outline);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+.panel-wood-header {
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #6b3e1a, #4a2510);
+  border-bottom: 2px solid #2a1004;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 2px;
+  color: #d4c0a0;
+  text-transform: uppercase;
+}
+.panel-wood-body {
+  padding: 8px;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+}
+
+/* Mixing station below bar */
+.mixing-station {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+  padding: 14px;
+  background: linear-gradient(180deg, #5a3018, #3a1808);
+  border: var(--outline);
+  border-radius: var(--radius-lg);
+  width: 100%; max-width: 520px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+}
+.mixing-machine {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 4px;
+  padding: 10px 18px 8px;
+  background: linear-gradient(180deg, #3a1808, #1a0800);
+  border: 2px solid #2a1004;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+.mixing-machine .machine-label {
+  font-size: 0.65rem;
+  color: #a08060;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.mixing-machine:hover { border-color: #8a6d15; }
+.mixing-machine.mixing { animation: machineShake 0.4s ease-in-out 2; }
+@keyframes machineShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px) rotate(-1.5deg); }
+  75% { transform: translateX(5px) rotate(1.5deg); }
+}
+.mixing-machine.shake { animation: machineShake 0.3s ease-in-out; }
+
+/* Ingredient shelf */
+.ingredient-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  gap: 4px;
+  align-content: start;
 }
 
 /* === MENU SCREEN === */
